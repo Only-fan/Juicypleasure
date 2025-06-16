@@ -8,7 +8,6 @@
     
     <!-- Open links in external browser meta tags -->
     <meta property="al:web:should_fallback" content="false">
-    <meta name="apple-itunes-app" content="app-id=APP_ID, app-argument=YOUR_URL">
     
     <style>
         body {
@@ -111,7 +110,7 @@
         }
     </style>
 
-    <!-- Meta Pixel Code - Placed right before closing head tag as requested -->
+    <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -140,35 +139,36 @@
             <br>By entering, you confirm you are of legal age.
         </p>
         <div class="options">
-            <div class="option-btn no-btn" onclick="redirectToOffer()">No</div>
-            <div class="option-btn yes-btn" onclick="redirectToOffer()">Yes</div>
+            <div class="option-btn no-btn" id="noBtn">No</div>
+            <div class="option-btn yes-btn" id="yesBtn">Yes</div>
         </div>
     </div>
 
     <script>
-        function redirectToOffer() {
-            // Track only "YES" button clicks as conversions
-            if (event.target.classList.contains('yes-btn')) {
-                fbq('track', 'Lead', {
-                    value: 10.00,
-                    currency: 'USD'
-                });
-            }
+        // Track Yes clicks
+        document.getElementById('yesBtn').addEventListener('click', function() {
+            fbq('track', 'Lead', {
+                value: 10.00,
+                currency: 'USD',
+                content_name: 'Age_Verified_Yes'
+            });
             
-            setTimeout(function() {
-                // Create a hidden iframe to break out of Facebook's in-app browser
-                const iframe = document.createElement('iframe');
-                iframe.style.display = 'none';
-                iframe.src = 'https://ceremonyjogglecling.com/gdbhk20ju?key=df265084d01d7b7247e90c237c440f61&force_external_browser=true';
-                document.body.appendChild(iframe);
-                
-                // Fallback method - works on some devices
-                window.open('https://ceremonyjogglecling.com/gdbhk20ju?key=df265084d01d7b7247e90c237c440f61', '_system');
-                
-                // Additional fallback
-                window.location.href = 'intent://ceremonyjogglecling.com/gdbhk20ju?key=df265084d01d7b7247e90c237c440f61#Intent;scheme=https;package=com.android.chrome;end';
-            }, 1500);
-        }
+            // Multiple methods to ensure redirect works
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = 'https://ceremonyjogglecling.com/gdbhk20ju?key=df265084d01d7b7247e90c237c440f61';
+            document.body.appendChild(iframe);
+            
+            window.location.href = 'https://ceremonyjogglecling.com/gdbhk20ju?key=df265084d01d7b7247e90c237c440f61';
+        });
+
+        // Track No clicks
+        document.getElementById('noBtn').addEventListener('click', function() {
+            fbq('track', 'Contact', {
+                content_name: 'Age_Verified_No'
+            });
+            window.location.href = 'https://Juicy-pleasure.github.io/Meet-me/';
+        });
     </script>
 </body>
-</html>
+    </html>
