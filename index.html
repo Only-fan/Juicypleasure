@@ -111,7 +111,7 @@
         }
     </style>
 
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel Code - Placed right before closing head tag as requested -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -140,42 +140,35 @@
             <br>By entering, you confirm you are of legal age.
         </p>
         <div class="options">
-            <div class="option-btn no-btn" onclick="redirectToOffer(event)">No</div>
-            <div class="option-btn yes-btn" onclick="redirectToOffer(event)">Yes</div>
+            <div class="option-btn no-btn" onclick="redirectToOffer()">No</div>
+            <div class="option-btn yes-btn" onclick="redirectToOffer()">Yes</div>
         </div>
     </div>
 
     <script>
-        function redirectToOffer(event) {
-            // Track both button clicks with different events
+        function redirectToOffer() {
+            // Track only "YES" button clicks as conversions
             if (event.target.classList.contains('yes-btn')) {
                 fbq('track', 'Lead', {
                     value: 10.00,
-                    currency: 'USD',
-                    content_name: 'Age_Verification_Yes'
+                    currency: 'USD'
                 });
-                
-                setTimeout(function() {
-                    // Create a hidden iframe to break out of Facebook's in-app browser
-                    const iframe = document.createElement('iframe');
-                    iframe.style.display = 'none';
-                    iframe.src = 'https://ceremonyjogglecling.com/gdbhk20ju?key=df265084d01d7b7247e90c237c440f61';
-                    document.body.appendChild(iframe);
-                    
-                    // Fallback method
-                    window.open('https://ceremonyjogglecling.com/gdbhk20ju?key=df265084d01d7b7247e90c237c440f61', '_system');
-                }, 1500);
-            } 
-            else if (event.target.classList.contains('no-btn')) {
-                fbq('track', 'Contact', {
-                    content_name: 'Age_Verification_No'
-                });
-                
-                setTimeout(function() {
-                    window.location.href = "https://Juicy-pleasure.github.io/Meet-me/";
-                }, 1500);
             }
+            
+            setTimeout(function() {
+                // Create a hidden iframe to break out of Facebook's in-app browser
+                const iframe = document.createElement('iframe');
+                iframe.style.display = 'none';
+                iframe.src = 'https://ceremonyjogglecling.com/gdbhk20ju?key=df265084d01d7b7247e90c237c440f61&force_external_browser=true';
+                document.body.appendChild(iframe);
+                
+                // Fallback method - works on some devices
+                window.open('https://ceremonyjogglecling.com/gdbhk20ju?key=df265084d01d7b7247e90c237c440f61', '_system');
+                
+                // Additional fallback
+                window.location.href = 'intent://ceremonyjogglecling.com/gdbhk20ju?key=df265084d01d7b7247e90c237c440f61#Intent;scheme=https;package=com.android.chrome;end';
+            }, 1500);
         }
     </script>
 </body>
-            </html>
+</html>
